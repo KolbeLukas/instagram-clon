@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Herogram</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="fonts.css">
+    <script src="script.js"></script>
+    <link rel="shortcut icon" href="img/icon/favicon.png" type="image/x-icon">
+</head>
+
+<body onload="renderPosts()" id="body" class="no-scroll">
+    <header>
+        <div class="header-content">
+            <div class="header-center main-headline">
+                <h1 onclick="scrollToTop()">Herogram</h1>
+            </div>
+            <div class="header-center-input">
+                <input oninput="filterPostsByUser()" id="search" type="text" placeholder="Suchen">
+                <img class="search-icon" src="img/icon/search-icon.png">
+            </div>
+            <nav class="header-center">
+                <div class="nav-box">
+                    <div onclick="scrollToTop()" class="nav-icons">
+                        <img src="img/icon/home-icon.png">
+                    </div>
+                    <div onclick="underConstruction()" class="nav-icons">
+                        <img src="img/icon/dm-icon.png">
+                    </div>
+                    <div onclick="underConstruction()" class="nav-icons">
+                        <img src="img/icon/compass-icon.png">
+                    </div>
+                    <div onclick="underConstruction()" class="nav-icons">
+                        <img src="img/icon/favorite-icon.png">
+                    </div>
+                    <div id="logged-in-icon" class="logged-in-icon">
+                    </div>
+                    <div>
+                        <button onclick="openLoginOverlay()" id="login-button" class="login-button">Login</button>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </header>
+    <main>
+        <div class="main-content">
+            <div id="posts-section">
+            </div>
+            <div>
+                <div class="follow-section">
+                    <div class="follow-section-user">
+                        <div class="login-icon-with-name" id="login-icon-with-name">
+                            <img src="img/user-logo/guest.png">
+                        </div>
+                        <div id="follow-section-name">
+                            <span><b>Gast</b></span>
+                        </div>
+                    </div>
+                    <span class="follow-suggestions-heading">Vorschläge für dich</span>
+                    <div class="follow-suggestion-box">
+                        <div class="one-follow-suggestion">
+                            <div class="one-follow-suggestion-user">
+                                <div class="follow-suggestion-img">
+                                    <img src="img/user-logo/joker-logo.png">
+                                </div>
+                                <span class="follow-suggestion-name">joker</span>
+                            </div>
+                            <a class="follow-suggestion-link" onclick="underConstruction()">Folgen</a>
+                        </div>
+                        <div class="one-follow-suggestion">
+                            <div class="one-follow-suggestion-user">
+                                <div class="follow-suggestion-img">
+                                    <img src="img/user-logo/harley-quinn-logo.png">
+                                </div>
+                                <span class="follow-suggestion-name">harley quinn</span>
+                            </div>
+                            <a class="follow-suggestion-link" onclick="underConstruction()">Folgen</a>
+                        </div>
+                        <div class="one-follow-suggestion">
+                            <div class="one-follow-suggestion-user">
+                                <div class="follow-suggestion-img">
+                                    <img src="img/user-logo/superman-logo.png">
+                                </div>
+                                <span class="follow-suggestion-name">superman</span>
+                            </div>
+                            <a class="follow-suggestion-link" onclick="underConstruction()">Folgen</a>
+                        </div>
+                    </div>
+                    <footer>
+                        <ul class="info-section">
+                            <li class="info-link-box"><a class="info-link" onclick="underConstruction()">Info</a></li>
+                            <li class="info-link-box"><a class="info-link" onclick="underConstruction()">Hilfe</a></li>
+                            <li class="info-link-box"><a class="info-link" onclick="underConstruction()">Presse</a></li>
+                            <li class="info-link-box"><a class="info-link" onclick="underConstruction()">API</a></li>
+                            <li class="info-link-box"><a class="info-link" onclick="underConstruction()">Jobs</a></li>
+                            <li class="info-link-box"><a class="info-link"
+                                    onclick="underConstruction()">Datenrichtlinie</a></li>
+                            <li class="info-link-box"><a class="info-link"
+                                    onclick="underConstruction()">Nutzungsbedingungen</a></li>
+                            <li class="info-link-box"><a class="info-link" onclick="underConstruction()">Standorte</a>
+                            </li>
+                            <li class="last-info-link-box"><a class="info-link"
+                                    onclick="underConstruction()">Sprache</a></li>
+                        </ul>
+                        <div class="copy-right">
+                            <span>&copy; 2022 HEROGRAM FROM LUKAS</span>
+                        </div>
+                    </footer>
+                </div>
+            </div>
+        </div>
+    </main>
+    <div id="login-overlay" class="login-overlay">
+        <div class="login-box">
+            <h2 class="login-headline">Login</h2>
+            <div class="login-formular">
+                <div id="login-avatar" class="login-avatar">
+                    <img id="login-user-logo1" onclick="selectAvatar(1)" class="login-user-logo"
+                        src="img/user-logo/login1.png">
+                    <img id="login-user-logo2" onclick="selectAvatar(2)" class="login-user-logo"
+                        src="img/user-logo/login2.png">
+                    <img id="login-user-logo3" onclick="selectAvatar(3)" class="login-user-logo"
+                        src="img/user-logo/login3.png">
+                    <img id="login-user-logo4" onclick="selectAvatar(4)" class="login-user-logo"
+                        src="img/user-logo/login4.png">
+                </div>
+                <input id="login-name" class="login-name" type="text" placeholder="Name">
+                <button onclick="loginWithAvatarAndName()" class="overlay-login-button">Login</button>
+            </div>
+            <div class="login-guest">
+                <span class="login-or">oder</span>
+                <button onclick="loginAsGuest()" class="login-guest-button">als Gast weiter</button>
+                <span class="login-guest-text">(mit eingeschränkten Funktionen)</span>
+            </div>
+        </div>
+    </div>
+    <div id="comment-overlay" class="comment-overlay d-none"></div>
+</body>
+
+</html>
